@@ -44,12 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final user = User(
-    name: "Steffi",
-    age: 20,
-    urlImage:
-        "https://i.pinimg.com/736x/d0/7a/f6/d07af684a67cd52d2f10acd6208db98f.jpg",
-  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -125,6 +119,11 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor: getColor(Colors.red, Colors.yellow, false),
+                  backgroundColor: getColor(Colors.white, Colors.pink, false),
+                  side: getBorder(Colors.red, Colors.white, false),
+                ),
                 onPressed: () {
                   final provider =
                       Provider.of<CardProvider>(context, listen: false);
@@ -137,6 +136,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor: getColor(Colors.green, Colors.yellow, false),
+                  backgroundColor: getColor(Colors.white, Colors.blue, false),
+                  side: getBorder(Colors.blue, Colors.white, false),
+                ),
                 onPressed: () {
                   final provider =
                       Provider.of<CardProvider>(context, listen: false);
@@ -149,6 +153,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
+                style: ButtonStyle(
+                  foregroundColor: getColor(Colors.green, Colors.teal, false),
+                  backgroundColor: getColor(Colors.white, Colors.green, false),
+                  side: getBorder(Colors.green, Colors.white, false),
+                ),
                 onPressed: () {
                   final provider =
                       Provider.of<CardProvider>(context, listen: false);
@@ -162,6 +171,31 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           );
+  }
+
+  MaterialStateProperty<Color> getColor(Color color, Color color2, bool force) {
+    // ignore: prefer_function_declarations_over_variables
+    final getColor = (Set<MaterialState> states) {
+      if (force || states.contains(MaterialState.pressed)) {
+        return color2;
+      } else {
+        return color;
+      }
+    };
+    return MaterialStateProperty.resolveWith(getColor);
+  }
+
+  MaterialStateProperty<BorderSide> getBorder(
+      Color color, Color color2, bool force) {
+    // ignore: prefer_function_declarations_over_variables
+    final getBorder = (Set<MaterialState> states) {
+      if (force || states.contains(MaterialState.pressed)) {
+        return const BorderSide(color: Colors.transparent);
+      } else {
+        return BorderSide(color: color, width: 2);
+      }
+    };
+    return MaterialStateProperty.resolveWith(getBorder);
   }
 
   Widget buildLogo() => Row(
