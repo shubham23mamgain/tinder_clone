@@ -56,6 +56,47 @@ class CardProvider extends ChangeNotifier {
         urlImage:
             "https://images.statusfacebook.com/profile_pictures/real-desi-girls/desi-girl-profile-pic-09.jpg",
       ),
+      User(
+        name: "Nandini",
+        age: 19,
+        urlImage:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdCH3l8-27kzRrVunAeFDIEE5egddG0o7e6A&usqp=CAU",
+      ),
+      User(
+        name: "Gauri",
+        age: 27,
+        urlImage:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWNDSVvTM2vRLrFfTP4lPZ9hGN_HtmnMc-IA&usqp=CAU",
+      ),
+      User(
+        name: "Parul",
+        age: 22,
+        urlImage:
+            "https://files.oyebesmartest.com/uploads/preview/simrat-kaur-beauty-indian-girl-(3)es41qpgrkd.jpg",
+      ),
+      User(
+        name: "Akshita",
+        age: 26,
+        urlImage:
+            "https://files.oyebesmartest.com/uploads/large/11599314108hch.jpeg",
+      ),
+      User(
+        name: "Nivedita",
+        age: 23,
+        urlImage:
+            "https://i.pinimg.com/originals/b7/c6/00/b7c60067984bde606d2606c084a5d13c.jpg",
+      ),
+      User(
+        name: "Ankita",
+        age: 19,
+        urlImage:
+            "https://i.pinimg.com/originals/99/a4/be/99a4bea1880933fcf551abd469318f4c.jpg",
+      ),
+      User(
+        name: "Urvashi",
+        age: 21,
+        urlImage: "https://thedailynewnation.com/library/1568299395_0.jpg",
+      ),
     ].reversed.toList();
 
     notifyListeners();
