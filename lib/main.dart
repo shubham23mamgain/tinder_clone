@@ -113,6 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget buildButtons() {
     final provider = Provider.of<CardProvider>(context);
     final users = provider.users;
+    final status = provider.getStatus();
+    final isLike = status == CardStatus.like;
+    final isDisLike = status == CardStatus.dislike;
+    final isSuperLike = status == CardStatus.superlike;
     return users.isEmpty
         ? Container()
         : Row(
@@ -120,9 +124,11 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: getColor(Colors.red, Colors.yellow, false),
-                  backgroundColor: getColor(Colors.white, Colors.pink, false),
-                  side: getBorder(Colors.red, Colors.white, false),
+                  foregroundColor:
+                      getColor(Colors.red, Colors.yellow, isDisLike),
+                  backgroundColor:
+                      getColor(Colors.white, Colors.pink, isDisLike),
+                  side: getBorder(Colors.red, Colors.white, isDisLike),
                 ),
                 onPressed: () {
                   final provider =
@@ -137,9 +143,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: getColor(Colors.green, Colors.yellow, false),
-                  backgroundColor: getColor(Colors.white, Colors.blue, false),
-                  side: getBorder(Colors.blue, Colors.white, false),
+                  foregroundColor:
+                      getColor(Colors.green, Colors.yellow, isSuperLike),
+                  backgroundColor:
+                      getColor(Colors.white, Colors.blue, isSuperLike),
+                  side: getBorder(Colors.blue, Colors.white, isSuperLike),
                 ),
                 onPressed: () {
                   final provider =
@@ -154,9 +162,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                  foregroundColor: getColor(Colors.green, Colors.teal, false),
-                  backgroundColor: getColor(Colors.white, Colors.green, false),
-                  side: getBorder(Colors.green, Colors.white, false),
+                  foregroundColor: getColor(Colors.green, Colors.teal, isLike),
+                  backgroundColor: getColor(Colors.white, Colors.green, isLike),
+                  side: getBorder(Colors.green, Colors.white, isLike),
                 ),
                 onPressed: () {
                   final provider =
